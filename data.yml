@@ -1,0 +1,9 @@
+---
+'pe-aix-71-builder':
+  hostname: 'pe-aix-7.1-builder.delivery.puppetlabs.net'
+  ip: '10.16.77.12'
+  os_ver: 7.1
+  arch: ppc
+  mksysb: pe_aix_builder_template_keyed_mksysb
+  fb_script: builder_setup_fb_script
+  spot: '7102_spot'

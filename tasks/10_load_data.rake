@@ -19,10 +19,12 @@ begin
   # of them here so we can define build tasks for each later in build.rake
   #
   @builders = []
+  @os_vers  = []
   @machine_names.each do |host|
     data = @aix_data[host]
     if data['builder'] == 'true'
       @builders << host
+      @os_vers  << data['os_ver']
     end
   end
 

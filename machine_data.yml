@@ -8,6 +8,7 @@
   mksysb: 'pe_aix_71_builder_template_keyed_mksysb'
   fb_script:
   spot: '7102_spot'
+  builder: 'true'
 'pe-aix-61-builder':
   hostname: 'pe-aix-61-builder.delivery.puppetlabs.net'
   nim_client: 'pe-aix-61-builder'
@@ -17,6 +18,7 @@
   mksysb: 'pe_aix_61_builder_template_keyed_mksysb'
   fb_script: 'builder_setup_fb_script'
   spot: '6107_spot'
+  builder: 'true'
 'pe-aix-71-builder-template':
   hostname: 'pe-aix-71-builder-template.delivery.puppetlabs.net'
   nim_client: 'pe-aix-71-builder-template'
@@ -26,6 +28,7 @@
   mksysb: 'pe_aix_71_builder_template_keyed_mksysb'
   fb_script: 'builder_setup_fb_script'
   spot: '7102_spot'
+  builder: 'false'
 'pe-aix-61-builder-template':
   hostname: 'pe-aix-61-builder-template.delivery.puppetlabs.net'
   nim_client: 'pe-aix-61-builder-template'
@@ -35,3 +38,4 @@
   mksysb: 'pe_aix_61_builder_template_keyed_mksysb'
   fb_script: 'builder_setup_fb_script'
   spot: '6107_spot'
+  builder: 'false'

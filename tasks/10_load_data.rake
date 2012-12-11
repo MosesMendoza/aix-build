@@ -14,6 +14,18 @@ begin
   @aix_data         ||= YAML.load_file(data_file)
   @machine_names    = @aix_data.keys
   @machine_hashes   = @aix_data.values
+
+  # Our builders have the key 'builder' set to 'true'. We make a list
+  # of them here so we can define build tasks for each later in build.rake
+  #
+  @builders = []
+  @machine_names.each do |host|
+    data = @aix_data[host]
+    if data['builder'] == 'true'
+      @builders << host
+    end
+  end
+
 rescue
   STDERR.puts "Couldn't load builder data"
   exit 1

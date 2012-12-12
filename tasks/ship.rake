@@ -7,6 +7,9 @@ task :ship do
     exit 1
   else
     check_var('PE_VER', ENV['PE_VER'])
+    # @distribution_repo_path has a string, _pe_ver_, that we gsub out with
+    # the PE version to get the right remote path
+    @distribution_repo_path.gsub!('_pe_ver_', ENV['PE_VER'])
     remote_path = "#{@distribution_repo_path}/#{ENV['PE_VER']}/repos/"
     @os_vers.each do |os_ver|
       results_dir = "#{@base_dir}/#{os_ver}"

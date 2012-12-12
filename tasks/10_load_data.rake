@@ -24,14 +24,14 @@ begin
   @machine_names          = @machine_data.keys
   @machine_hashes         = @machine_data.values
 
-  # Our builders have the key 'builder' set to 'true'. We make a list
+  # Our builders have the key 'role' set to 'builder'. We make a list
   # of them here so we can define build tasks for each later in build.rake
   #
   @builders = []
   @os_vers  = []
   @machine_names.each do |host|
     data = @machine_data[host]
-    if data['builder'] == 'true'
+    if data['role'] == 'builder'
       @builders << host
       @os_vers  << data['os_ver']
     end

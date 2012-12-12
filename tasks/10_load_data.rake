@@ -5,6 +5,7 @@
 #@nim_master = 'pe-aix-NIM.delivery.puppetlabs.net'
 @nim_master = '10.16.77.10'
 @nim_user   = 'aixcontroller'
+@distribution_server = 'neptune.puppetlabs.lan'
 
 # @setup_script is the nim first boot script file, located in the
 # current directory

@@ -1,8 +1,7 @@
 @builders.each do |host|
-  data            = @aix_data[host]
+  data            = @machine_data[host]
   os_ver          = data['os_ver']
   ip              = data['ip']
-  nim_remote_user = data['nim_remote_user']
   namespace :pe do
     namespace :aix do
       # We assume there's a defined restore task for every host, including all builders
@@ -11,9 +10,9 @@
         desc "Build PE for AIX #{os_ver} on #{host}"
         task "build" => "restore-#{host}" do
           STDOUT.puts "# Building packages for #{os_ver} on #{host}..."
-          sh "ssh #{nim_remote_user}@#{ip} \
-          'pushd /srv/aix/#{os_ver} ; \
-          cp -pr /srv/aix/pe-aix/* . ; \
+          sh "ssh -o StrictHostKeyChecking=no #{@nim_remote_user}@#{ip} \
+          'pushd #{@base_dir}/#{os_ver} ; \
+          cp -pr #{@src_dir}/* . ; \
           make all ; \
           popd'"
         end

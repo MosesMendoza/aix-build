@@ -7,9 +7,9 @@ task :ship do
     exit 1
   else
     check_var('PE_VER', ENV['PE_VER'])
-    remote_path = "/opt/enterprise/#{ENV['PE_VER']}/repos/"
+    remote_path = "#{@distribution_repo_path}/#{ENV['PE_VER']}/repos/"
     @os_vers.each do |os_ver|
-      results_dir = "/srv/aix/#{os_ver}"
+      results_dir = "#{@base_dir}/#{os_ver}"
       if File.exist?("#{results_dir}/aix-#{os_ver}-power")
         rsync_to("#{results_dir}/aix-#{os_ver}-power", @distribution_server, remote_path)
       end

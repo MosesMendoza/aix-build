@@ -1,0 +1,10 @@
+---
+base_dir: '/srv/aix'
+src_dir: '/srv/aix/pe-aix'
+nim_master: '10.16.77.10'
+nim_local_user: 'aixcontroller'
+nim_remote_user: 'root'
+distribution_server: 'neptune.puppetlabs.lan'
+setup_script: '/srv/aix/pe-aix/setup.sh'
+remote_fb_script_path: '/export/nim/fb_script'
+distribution_repo_path: '/opt/enterprise'

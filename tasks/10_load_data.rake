@@ -1,24 +1,28 @@
-
-# Our NIM master is pretty static, so its not in the yaml file
-
-# commented until we have DNS up
-#@nim_master = 'pe-aix-NIM.delivery.puppetlabs.net'
-@nim_master = '10.16.77.10'
-@nim_user   = 'aixcontroller'
-@distribution_server = 'neptune.puppetlabs.lan'
-
-# @setup_script is the nim first boot script file, located in the
-# current directory
-@setup_script = File.join('/', 'srv', 'aix', 'pe-aix', 'setup.sh')
-
-data_file = File.join(RAKE_ROOT, 'machine_data.yml')
+# Load data about our environment from yaml files in our base directory
+#
+machine_data = File.join(RAKE_ROOT, 'machine_data.yml')
+site_data    = File.join(RAKE_ROOT, 'site_data.yml')
 
 # Load the data from the data.yml file
 begin
   require 'yaml'
-  @aix_data         ||= YAML.load_file(data_file)
-  @machine_names    = @aix_data.keys
-  @machine_hashes   = @aix_data.values
+  # Various data about our site, that aren't builder specific
+  #
+  @site_data              ||= YAML.load_file(site_data)
+  @base_dir               = @site_data['base_dir']
+  @src_dir                = @site_data['src_dir']
+  @nim_master             = @site_data['nim_master']
+  @nim_local_user         = @site_data['nim_local_user']
+  @nim_remote_user        = @site_data['nim_remote_user']
+  @distribution_server    = @site_data['distribution_server']
+  @setup_script           = @site_data['setup_script']
+  @remote_fb_script_path  = @site_data['remote_fb_script_path']
+  @distribution_repo_path = @site_data['distribution_repo_path']
+  # machine-specific data
+  #
+  @machine_data           ||= YAML.load_file(machine_data)
+  @machine_names          = @machine_data.keys
+  @machine_hashes         = @machine_data.values
 
   # Our builders have the key 'builder' set to 'true'. We make a list
   # of them here so we can define build tasks for each later in build.rake
@@ -26,15 +30,13 @@ begin
   @builders = []
   @os_vers  = []
   @machine_names.each do |host|
-    data = @aix_data[host]
+    data = @machine_data[host]
     if data['builder'] == 'true'
       @builders << host
       @os_vers  << data['os_ver']
     end
   end
-
 rescue
   STDERR.puts "Couldn't load builder data"
   exit 1
 end
-

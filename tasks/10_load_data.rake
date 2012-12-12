@@ -6,6 +6,10 @@
 @nim_master = '10.16.77.10'
 @nim_user   = 'aixcontroller'
 
+# @setup_script is the nim first boot script file, located in the
+# current directory
+@setup_script = File.join('/', 'srv', 'aix', 'pe-aix', 'setup.sh')
+
 data_file = File.join(RAKE_ROOT, 'machine_data.yml')
 
 # Load the data from the data.yml file

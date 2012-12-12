@@ -2,6 +2,7 @@
 'pe-aix-71-builder':
   hostname: 'pe-aix-71-builder.delivery.puppetlabs.net'
   nim_client: 'pe-aix-71-builder'
+  nim_remote_user: 'root'
   ip: '10.16.77.12'
   os_ver: '7.1'
   arch: 'ppc'
@@ -12,6 +13,7 @@
 'pe-aix-61-builder':
   hostname: 'pe-aix-61-builder.delivery.puppetlabs.net'
   nim_client: 'pe-aix-61-builder'
+  nim_remote_user: 'root'
   ip: '10.16.77.13'
   os_ver: '6.1'
   arch: 'ppc'
@@ -22,6 +24,7 @@
 'pe-aix-71-builder-template':
   hostname: 'pe-aix-71-builder-template.delivery.puppetlabs.net'
   nim_client: 'pe-aix-71-builder-template'
+  nim_remote_user: 'root'
   ip: '10.16.77.15'
   os_ver: '7.1'
   arch: 'ppc'
@@ -32,6 +35,7 @@
 'pe-aix-61-builder-template':
   hostname: 'pe-aix-61-builder-template.delivery.puppetlabs.net'
   nim_client: 'pe-aix-61-builder-template'
+  nim_remote_user: 'root'
   ip: '10.16.77.11'
   os_ver: '6.1'
   arch: 'ppc'

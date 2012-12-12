@@ -5,6 +5,7 @@ task :clean => :check do
   # We just clean locally to remove the amount of ssh communication we have to do
   # with the LPARS
   #
-  sh "sudo rm -rf /srv/aix/#{os_ver}/* ; sudo rm -rf /srv/aix/pe-aix/aix-#{os_ver}-{power,srpms}"
+  STDOUT.puts "# Cleaning build target directories..."
+  %x{sudo rm -rf /srv/aix/#{os_ver}/* ; sudo rm -rf /srv/aix/pe-aix/aix-#{os_ver}-{power,srpms}}
 end
 

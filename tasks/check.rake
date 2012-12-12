@@ -4,6 +4,7 @@
 aix_src_path = '/srv/aix/pe-aix'
 task :check => :lock do
   unless ENV['NO_CHECK'] == '1'
+    STDOUT.puts "# Checking for a clean source tree..."
     cd aix_src_path do
       describe = %x{git describe --dirty --always}
       if describe.include?('-dirty')

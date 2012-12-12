@@ -39,7 +39,7 @@
   fb_script: 'builder_setup_fb_script'
   spot: '6107_spot'
   role: 'template'
-'pe-aix-71-acceptance'
+'pe-aix-71-acceptance':
   hostname: 'pe-aix-71-acceptance.delivery.puppetlabs.net'
   nim_client: 'pe-aix-71-acceptance'
   ip: '10.16.77.16'
@@ -49,7 +49,7 @@
   fb_script:
   spot: '7102_spot'
   role: 'acceptance'
-'pe-aix-61-acceptance'
+'pe-aix-61-acceptance':
   hostname: 'pe-aix-61-acceptance.delivery.puppetlabs.net'
   nim_client: 'pe-aix-61-acceptance'
   ip: '10.16.77.17'

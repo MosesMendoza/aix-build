@@ -1,7 +1,7 @@
 # Load data about our environment from yaml files in our base directory
 #
-machine_data = File.join(RAKE_ROOT, 'machine_data.yml')
-site_data    = File.join(RAKE_ROOT, 'site_data.yml')
+machine_data = File.join(RAKE_ROOT, 'tasks', 'data', 'machine_data.yml')
+site_data    = File.join(RAKE_ROOT, 'tasks', 'data', 'site_data.yml')
 
 # Load the data from the data.yml file
 begin

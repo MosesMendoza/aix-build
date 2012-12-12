@@ -7,7 +7,7 @@
       # We also assume we have one builder defined per AIX OS Level
       namespace "#{os_ver}" do
         desc "Build PE for AIX #{os_ver} on #{host}"
-        task "build" => [:clean, "restore-#{host}"] do
+        task "build" => "restore-#{host}" do
           puts ":stuff!"
         end
       end

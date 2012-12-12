@@ -27,7 +27,8 @@ def bos_inst_restore(args = {})
   # fb_script, the first boot script, is optional
   cmd << "-a fb_script=#{fb_script}" if fb_script
   cmd << "#{nim_client}'\""
-  sh cmd.flatten.join(' ')
+  #sh cmd.flatten.join(' ')
+  puts cmd.flatten.join(' ')
 
   # Sit in our polling loop until we have a ready file
   #
@@ -63,6 +64,8 @@ end
       :fb_script        => (ENV['NO_FB'] ? nil : data['fb_script']),
       :os_ver           => data['os_ver'],
     }
+    ENV['OS_VER'] = data['os_ver']
+    Rake::Task['clean'].invoke
     bos_inst_restore(args)
   end
 end
